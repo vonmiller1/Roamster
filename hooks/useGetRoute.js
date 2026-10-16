@@ -10,6 +10,9 @@ const useGetRoute = () => {
         { method: "GET" }
       );
       const json = await query.json();
+      if (!query.ok || !json.routes?.length) {
+        return null;
+      }
       const data = json.routes[0];
       const route = data.geometry.coordinates;
       const geojson = {
