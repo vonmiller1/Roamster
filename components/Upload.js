@@ -31,7 +31,9 @@ const Upload = () => {
     await getTripData();
     const current_trip = trip.filter((el) => el.tripName === state.tripName);
     const storage = getStorage();
-    const path = `${(storage, current_trip?.[0]?.id)}/${files?.[no - 1]?.name}`;
+    const tripId = current_trip?.[0]?.id ?? state.tripID;
+    if (!user?.uid || !tripId || !files?.[no - 1]) return;
+    const path = `${user.uid}/${tripId}/${files[no - 1].name}`;
     const docRef = ref(storage, path);
     const file = files?.[no - 1];
     await uploadBytes(docRef, file);
@@ -44,6 +46,7 @@ const Upload = () => {
     if (!user) {
       router.push("/login");
       dispatch({ type: "setEditViewType", payload: "directions" });
+      return;
     }
 
     if (!state.tripName && files.length > 0)
