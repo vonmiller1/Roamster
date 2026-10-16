@@ -1,6 +1,8 @@
-const filterByLocation = (activities,loc) => {
-    const arr = activities.filter((el) => el.location === loc);
-    return arr;
-  };
+const filterByLocation = (activities, loc) => {
+  if (!Array.isArray(activities) || loc == null) {
+    return [];
+  }
+  return activities.filter((el) => el?.location === loc);
+};
 
-  export default filterByLocation
+export default filterByLocation;
