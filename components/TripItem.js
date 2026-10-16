@@ -32,6 +32,7 @@ const TripItem = ({ trip, user }) => {
 
   const loadItinerary = async () => {
     const docSnap = await getDoc(docRef);
+    if (!docSnap.exists()) return;
     const itineraryString = docSnap.data().data;
     const tripname = docSnap.data().tripname;
     let itineraryObject = JSON.parse(itineraryString);
