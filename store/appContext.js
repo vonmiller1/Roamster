@@ -11,7 +11,7 @@ export const ContextProvider = ({ children }) => {
     startValue: "",
     endValue: "",
     startSuggestion: [],
-    endSuggestion: "",
+    endSuggestion: [],
     itinerary: [],
     routeData: [],
     mapView: true,
