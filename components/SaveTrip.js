@@ -113,6 +113,7 @@ const SaveTrip = () => {
       showSaveFeedback();
     } else {
       const msg = document.getElementById("msg");
+      if (!msg) return;
       msg.style.display = "block";
       setTimeout(() => {
         msg.style.display = "none";
