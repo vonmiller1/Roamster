@@ -22,7 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if (redirect) router.push("/");
-  }, [redirect]);
+  }, [redirect, router]);
 
   return (
     <div className="flex">
