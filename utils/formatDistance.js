@@ -1,9 +1,12 @@
 const formatDistance = (dist) => {
-  const output =
-    dist < 1000
-      ? Math.floor(dist) + " m"
-      : Math.floor(dist / 1000) + "." + (dist % 1000).toString()[0] + " km";
-  return output;
+  if (dist == null || Number.isNaN(Number(dist))) {
+    return "";
+  }
+  const meters = Number(dist);
+  if (meters < 1000) {
+    return `${Math.floor(meters)} m`;
+  }
+  return `${(meters / 1000).toFixed(1)} km`;
 };
 
 export default formatDistance
