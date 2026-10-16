@@ -37,7 +37,7 @@ const DeleteStop = () => {
 
   const handleClick = () => {
     dispatch({ type: "setDeleteView", payload: false });
-    dispatch({ type: "setEditView", payload: "directions" });
+    dispatch({ type: "setEditView", payload: false });
   };
 
   return (
