@@ -5,6 +5,7 @@ const nextConfig = {
 
 
 module.exports = {
+  ...nextConfig,
   env: {
     mapbox_key: process.env.mapbox_key,
     apiKey: process.env.apiKey,
