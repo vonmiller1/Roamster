@@ -22,8 +22,9 @@ const useGetDistanceToCityCenter = (hotelData) => {
   };
 
   useEffect(() => {
-    getDistanceToCityCenter()
-  },[])
+    if (!coords || !hotelData?.length) return;
+    getDistanceToCityCenter(hotelData);
+  }, [coords, hotelData]);
 
   return [distance, getDistanceToCityCenter]
 };
