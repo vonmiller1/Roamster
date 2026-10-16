@@ -50,7 +50,7 @@ const signOutUser = () => {
 const checkIfUserExists = async (id) => {
   const userRef = doc(db, "users", id);
   const docSnap = await getDoc(userRef);
-  return docSnap;
+  return docSnap.exists();
 };
 
 const useAuth = () => {
@@ -65,11 +65,8 @@ const useAuth = () => {
 };
 
 const db = getFirestore(app);
-let uid = "";
-const colRef = collection(db, "users");
 
 const createUser = async (user) => {
-  console.log(db);
   const userExists = await checkIfUserExists(user.uid);
   if (userExists) return;
   await setDoc(doc(db, "users", user.uid), { name: user.displayName });
